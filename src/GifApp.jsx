@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import GifGrid from "./components/GifGrid";
+import { AddCategory, GifGrid } from "./components/index";
+
 export default function GifApp(){
-    const [categories, setCategories]= useState(['Dragon Ball'])    
+    const [categories, setCategories]= useState(['Naruto'])    
     const onAddCategory=(newCategory)=>{
         if (categories.includes(newCategory)) return;
-        setCategories([...categories,newCategory])        
+        setCategories([newCategory,...categories])        
     }
     return (
-    <div>
-       <AddCategory onNewCategory = {onAddCategory} />       
-       
+    <div className="align-content-align-items-center">
+       <AddCategory onNewCategory = {onAddCategory} />    
             {categories.map((c)=>
                 <GifGrid key={c} category = {c} />
-            )}   
-               
+            )}                 
     </div>
     )
 }
