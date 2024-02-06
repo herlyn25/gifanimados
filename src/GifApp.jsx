@@ -1,12 +1,21 @@
 import { useState } from "react";
-import {Button} from "react-bootstrap";
+import { AddCategory } from "./components/AddCategory";
 
 export default function GifApp(){
+    const [categories, setCategories]= useState(['Naruto', 'Dragon Ball'])
+    
+    const onAddCategory=()=>{
+       setCategories(["Dragon Zkai",...categories])
+    }
     
     return (
     <>
-        <h1>Hola Gif App</h1>
-        
+       <AddCategory setCategories = {setCategories} />
+       <ol>
+        {
+            categories.map((category)=> <li key={category}>{category}</li>)
+        }
+       </ol>
     </>
     )
 }
