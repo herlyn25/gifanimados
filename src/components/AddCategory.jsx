@@ -1,15 +1,16 @@
 import { useState } from "react"
 import { Form } from "react-bootstrap"
-export const AddCategory=({setCategories})=>{
+
+export const AddCategory=({onNewCategory})=>{
     const [inputValue, setInputValue] = useState("")
    
     const onInputChange = ({target}) =>{
-        setInputValue(target.value)
-        
+        setInputValue(target.value)        
     }
     const onInputSubmit=(event)=>{
-        event.preventDefault()        
-        setCategories(categories=>[inputValue,...categories])       
+        event.preventDefault()   
+        if (inputValue.trim().length <=1) return;     
+        onNewCategory(inputValue)       
         setInputValue("")
         
     }
