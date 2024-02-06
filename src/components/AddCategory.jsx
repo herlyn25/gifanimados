@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Form } from "react-bootstrap"
 
 export const AddCategory=({onNewCategory})=>{
+    
     const [inputValue, setInputValue] = useState("")
    
     const onInputChange = ({target}) =>{
